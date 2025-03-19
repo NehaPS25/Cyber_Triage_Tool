@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page with Sidebar</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic styles for the sidebar and content */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container for Sidebar and Content */
+    .container {
+      display: flex;
+      margin-top: 50px;
+       /* Adjust if needed */
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      background-color: #548483;
+      color: rgb(129, 83, 83);
+      position: fixed;
+      top: 0; /* Ensure it starts from the top */
+      left: -250px;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar h2 {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #575757;
+    }
+
+    /* Content Styles */
+    .content {
+      margin-left: 5%;
+      transition: margin-left 0.1s;
+      padding: 20px;
+      flex-grow: 1;
+      
+      /* Prevent the image from repeating */
+    }
+    
+    .content.open {
+      margin-left: 250px;
+      margin-top: -1%;
+    
+    }
+
+    /* Menu Icon */
+    .menu-icon {
+      font-size: 30px;
+      color: #333;
+      cursor: pointer;
+      margin: 10px;
+      position: fixed;
+      left: 10px;  /* Move the icon to the left */
+      top: 10px;   /* You can adjust this value if needed */
+      display: inline-block;
+    }
+    
+
+    /* Close Icon Styles */
+    .close-icon {
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .m{
+      padding:30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Icon -->
+  <span class="menu-icon" onclick="toggleSidebar()">☰</span>
+   <h1 class="m">CYBER CRIME TRIAGE TOOL</h1>
+  <!-- Container for Sidebar and Main Content -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <span class="close-icon" onclick="toggleSidebar()">×</span>
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#home" onclick="showSection('home')">Home</a></li>
+        <li><a href="#about" onclick="showSection('about')">About</a></li>
+        <li><a href="first.html" onclick="showSection('incident')">Incident</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <div id="home" class="section">
+        <h1 class="f">Welcome</h1>
+        <p class="f">An incident dashboard on a homepage typically provides a real-time overview of ongoing incidents or events within a system, organization, or project. It displays relevant data and key metrics in an easily digestible format, allowing users to quickly assess the status of incidents and take necessary actions.</p>
+      <p>The Incident Dashboard on the homepage provides a real-time overview of all active incidents, allowing users to stay informed and respond quickly to ongoing issues. It displays crucial information such as the severity of each incident, affected systems, and the current status of resolution efforts. The dashboard is visually organized with color-coded indicators to highlight the urgency of incidents, making it easy for users to identify high-priority issues. Additionally, it includes a progress tracker to show the resolution status, helping teams monitor how close they are to resolving each problem. By centralizing this information, the dashboard ensures that users can efficiently assess the situation, track incident progress, and take immediate action when needed to minimize disruptions and maintain system stability.</p>
+    <p>The Incident Dashboard on the homepage provides a real-time overview of all active incidents, allowing users to stay informed and respond quickly to ongoing issues. It displays crucial information such as the severity of each incident, affected systems, and the current status of resolution efforts. The dashboard is visually organized with color-coded indicators to highlight the urgency of incidents, making it easy for users to identify high-priority issues. Additionally, it includes a progress tracker to show the resolution status, helping teams monitor how close they are to resolving each problem. By centralizing this information, the dashboard ensures that users can efficiently assess the situation, track incident progress, and take immediate action when needed to minimize disruptions and maintain system stability.</p> 
+    </div>
+      <div id="about" class="section" style="display: none;">
+        <h1 class="f">About Us</h1>
+       <p>The Incident Dashboard on the homepage provides a real-time overview of all active incidents, allowing users to stay informed and respond quickly to ongoing issues. It displays crucial information such as the severity of each incident, affected systems, and the current status of resolution efforts. The dashboard is visually organized with color-coded indicators to highlight the urgency of incidents, making it easy for users to identify high-priority issues. Additionally, it includes a progress tracker to show the resolution status, helping teams monitor how close they are to resolving each problem. By centralizing this information, the dashboard ensures that users can efficiently assess the situation, track incident progress, and take immediate action when needed to minimize disruptions and maintain system stability.</p>
+       <p>The Incident Dashboard on the homepage provides a real-time overview of all active incidents, allowing users to stay informed and respond quickly to ongoing issues. It displays crucial information such as the severity of each incident, affected systems, and the current status of resolution efforts. The dashboard is visually organized with color-coded indicators to highlight the urgency of incidents, making it easy for users to identify high-priority issues. Additionally, it includes a progress tracker to show the resolution status, helping teams monitor how close they are to resolving each problem. By centralizing this information, the dashboard ensures that users can efficiently assess the situation, track incident progress, and take immediate action when needed to minimize disruptions and maintain system stability.</p>
+
+       <p>The Incident Dashboard on the homepage provides a real-time overview of all active incidents, allowing users to stay informed and respond quickly to ongoing issues. It displays crucial information such as the severity of each incident, affected systems, and the current status of resolution efforts.</p>
+      </div>
+      
+    </main>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const content = document.querySelector('.content');
+      sidebar.classList.toggle('open');
+      content.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Top Bar */
+.topbar {
+  background: #e4e5e6;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.topbar input {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+.search1{
+  width:30%;
+}
+
+.topbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+}
+
+.user-profile {
+  font-weight: bold;
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Metrics Section */
+.metrics {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding:1%;
+  border-radius: 15px; /* Adjust the value for more or less curve */
+ 
+  background-color: #eceaea; /* Light background for visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.card span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card.red {
+  background: #e74c3c;
+}
+
+.card.purple {
+  background: #9b59b6;
+}
+
+.card.green {
+  background: #2ecc71;
+}
+
+/* Chart Section */
+.chart-section {
+  margin-bottom: 20px;
+  padding:1%;
+  border-radius: 15px; /* Adjust the value for more or less curve */
+ 
+  background-color: #eceaea; /* Light background for visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 40px;
+  text-align: center;
+  justify-content: center;
+  
+ 
+  padding:1.5%;
+  border-radius: 15px; /* Adjust the value for more or less curve */
+ 
+  background-color: #eceaea; /* Light background for visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn.green {
+  background: #27ae60;
+}
+
+.btn.orange {
+  background: #e67e22;
+}
+
+.btn.blue {
+  background: #3498db;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+canvas {
+  max-width: 60%;
+  height: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* Make the canvas take full width and give it a specific height */
+

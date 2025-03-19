@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+ </head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <h1 class="ima">Triage</h1>
+    <div class="search-container" >
+      <input type="text" class="search-box" placeholder="Search...">
+      <i class="fa-solid fa-magnifying-glass"></i> 
+      </div>
+
+    <!-- Top Bar Icons -->
+<div class="topbar-icons">
+  <span class="ok" id="bell-icon">
+    <i class="fa-solid fa-bell"></i>
+    <span class="notification-badge" id="notification-badge">13</span>
+  </span>
+  <span class="icon"><i class="fa-solid fa-user"></i></span>
+  <span class="user-profile">Account.</span>
+  
+  <!-- Notification Popup -->
+  <div class="notification-popup" id="notification-popup">
+    <h4>Notifications</h4>
+    <ul>
+      <li><strong>A new critical vulnerability has been reported (now)</strong></li>
+      <li>A new critical vulnerability has been reported. (yesterday)</li>
+      <li>A new critical vulnerability has been reported. (27 Jan)</li>
+      <li>A new critical vulnerability has been reported. (26 Jan)</li>
+    </ul>
+  </div>
+</div>
+    
+  </header>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <!-- Link to Dashboard and Incident -->
+          <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+          <li><a href="#" onclick="showSection('incident')">Incident</a></li>
+          <li><a href="#" onclick="showSection('collab')">Collaboration</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Dashboard Section -->
+      <div id="dashboard" class="section">
+        <!-- Metrics Cards -->
+        <section class="metrics">
+          <div class="df">
+            <select id="DashBoard" class="d">
+              <option value="">DashBoard</option>
+              <option value="DashBoard3">DashBoard 2</option>
+              <option value="DashBoard">DashBoard 3</option>
+            </select>
+          </div>
+        
+          <div class="search-container">
+            <input type="text" placeholder="Search" class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i> 
+           
+          </div>
+        <div> <h2 class="nnn">Filter :</h2></div>
+          <div class="f">
+            
+            <select id="category" class="p">
+              <option value="">Category</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+            </select>
+            <select id="category"class="p">
+              <option value="">Priotriy</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+            </select>
+            <select id="category">
+              <option value="">severity</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+            </select>
+            <select id="category">
+              <option value="">status</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+           </select>
+            <select id="category">
+              <option value="">status</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+           </select>
+          </div>
+          <div class="u">
+          <div class="card_red">Total Incidents<br><span>3450</span></div>
+          <div class="card_purple">Open Cases<br><span>1200</span></div>
+          <div class="card_p">In Progress<br><span>1200</span></div>
+
+          <div class="card_white">Resolved<br><span>2250</span></div>
+        </div>
+        </section>
+
+        <!-- Chart Section -->
+        <div class="row">
+          <div class="col-md-6">
+            <canvas id="lineChart"></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="tenDayChart"></canvas>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card1">
+            <div class="card-body1">
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card1">
+            <div class="card-body">
+              <canvas id="donutChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons">
+          <button class="btn green">Report New Incident</button>
+          <button class="btn orange">View All Incidents</button>
+          <button class="btn blue">Generate Report</button>
+        </section>
+      </div>
+
+<!-- Collaboration Section -->
+<div>
+  <div id="collab" class="section">
+  
+    <!-- Main Chat + Sidebar -->
+    <div class="chatbox-main-container">
+        <!-- Chat Section -->
+        <div class="chatbox-container">
+            <section class="chatbox-window">
+                <h3>My Team</h3>
+                <div class="chatbox-message chatbox-received">Mayur H.<br>Hello <span>9:31</span></div>
+                <div class="chatbox-message chatbox-received">Mayur H.<br>Hello <span>9:31</span></div>
+                <div class="chatbox-message chatbox-received">Mayur H.<br>Hello <span>9:31</span></div>
+                <div class="chatbox-message chatbox-sent">Mayur H.<br>Hello <span>9:31</span></div>
+                <div class="chatbox-message chatbox-sent">Mayur H.<br>Hello <span>9:31</span></div>
+            </section>
+            <footer class="chatbox-footer">
+                <input type="text" placeholder="Type message">
+            </footer>
+        </div>
+    
+        <!-- Right Sidebar -->
+        <aside class="chatbox-right-sidebar">
+            <!-- Online Members -->
+             <div>
+              <h1>Switch Team</h1>
+              <select id="category" class="uuu">
+               <option value="">Team</option>
+               
+               <option value="Software">No Team</option>
+             </select>
+             </div>
+            
+            <div class="chatbox-online-members">
+                <h4>Online Members</h4>
+                <ul >
+                    <li><span><i class="fa-solid fa-circle" style="color: #cececf;"></i></span>  Mayur H. <span class="chatbox-status chatbox-online">●</span></li>
+                    <li><Span><i class="fa-solid fa-circle" style="color: #cececf;"></i></Span>  Neha S. <span class="chatbox-status chatbox-online">●</span></li>
+                    <li><span><i class="fa-solid fa-circle" style="color: #cececf;"></i></span>  John D. <span class="chatbox-status chatbox-offline">●</span></li>
+                </ul>
+            </div>
+    
+            <!-- Recent Activities -->
+            <div class="chatbox-recent-activities">
+                <h4>Recent Activities</h4>
+                <ul>
+                  <li>Mayur H. sent a message</li>
+                  <li>Neha S. joined the team</li>
+                  <li>John D. left the conversation</li>
+              </ul>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Button Section -->
+     <div class="cin">
+    <div class="chatbox-buttons">
+        <button class="chatbox-green">Manage Team</button>
+        <button class="chatbox-orange">View Team</button>
+        <button class="chatbox-blue">Generate Report</button>
+        <button class="chatbox-red">Leave Team</button>
+    </div>
+    </div>
+    
+    
+    </div>
+  </div>
+
+
+
+
+
+      <!-- Incident Section -->
+      <div id="incident" class="section " >
+        <div class="section1">
+          <h2>Incidents</h2>
+        </div>
+        <section class="section2">
+          <div class="sear">
+            <input type="text" class="search-box" placeholder="Search...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="filters">
+            <select id="category">
+              <option value="">Category</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+            </select>
+            <select id="severity">
+              <option value="">Severity</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+            </select>
+            <input type="date" id="date">
+            <select id="status">
+              <option value="">Status</option>
+              <option value="Open">Open</option>
+              <option value="Closed">Closed</option>
+            </select>
+            <select id="priority">
+              <option value="">Priority</option>
+              <option value="Critical">Critical</option>
+              <option value="High">High</option>
+            </select>
+        
+          </section>
+       
+      
+   <!-- Incident Table -->
+<div class="incident-table" style="max-height: 500px; overflow-y: auto; ;">
+    <table id="incidentTable" style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th><input type="checkbox"></th> <!-- New column for checkboxes -->
+          <th>Incident ID</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Severity</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Last Update</th>
+        </tr>
+      </thead>
+   
+      <tbody>
+        <tbody>
+          <tr  >
+
+            <td><input type="checkbox" class="row-checkbox"></td>
+            <td>1</td>
+            <td onclick="openIncident(event)" 
+            data-title="Denial of Service Vulnerability in Linux Kernel"
+                  data-source="hackernews"
+                  data-severity="HIGH"
+                  data-priority="2"
+                  data-date="Jan 27, 2025"
+                  data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                  data-fix-link="https://github.com/patch-link">System Crash</td>
+            <td>Hardware</td>
+            <td>High</td>
+            <td>Critical</td>
+            <td>Open</td>
+            <td>2025-01-27</td>
+          </tr>
+          
+        <tr data-incident='{"id":"2", "title":"Login Failure", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"User unable to log in due to incorrect authentication"}'>
+            <td><input type="checkbox" class="row-checkbox"></td>
+            <td>2</td>
+            <td onclick="openIncident(event)" 
+            data-title="Denial of Service Vulnerability in Linux Kernel"
+                  data-source="hackernews"
+                  data-severity="HIGH"
+                  data-priority="2"
+                  data-date="Jan 27, 2025"
+                  data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                  data-fix-link="https://github.com/patch-link">Login Failure</td>
+            <td>Software</td>
+            <td>Medium</td>
+            <td>High</td>
+            <td>Closed</td>
+            <td>2025-01-25</td>
+        </tr>
+        <tr data-incident='{"id":"3", "title":"Network Outage", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"A major network outage has been reported, affecting connectivity across multiple departments. The cause is suspected to be a faulty router or ISP issues."}'>
+          <td><input type="checkbox" class="row-checkbox"></td>
+          <td>3</td>
+          <td onclick="openIncident(event)" 
+          data-title="Denial of Service Vulnerability in Linux Kernel"
+                data-source="hackernews"
+                data-severity="HIGH"
+                data-priority="2"
+                data-date="Jan 27, 2025"
+                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                data-fix-link="https://github.com/patch-link">Network Outage</td>
+          <td>Software</td>
+          <td>Medium</td>
+          <td>High</td>
+          <td>Closed</td>
+          <td>2025-01-25</td>
+      </tr>
+      
+      <tr data-incident='{"id":"4", "title":"Data Breach Attempt", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"Unusual login attempts detected from multiple locations. Possible security breach, requiring an urgent investigation to secure user accounts."}'>
+          <td><input type="checkbox" class="row-checkbox"></td>
+          <td>4</td>
+          <td onclick="openIncident(event)" 
+          data-title="Denial of Service Vulnerability in Linux Kernel"
+                data-source="hackernews"
+                data-severity="HIGH"
+                data-priority="2"
+                data-date="Jan 27, 2025"
+                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                data-fix-link="https://github.com/patch-link">Data Breach Attempt</td>
+          <td>Software</td>
+          <td>Medium</td>
+          <td>High</td>
+          <td>Closed</td>
+          <td>2025-01-25</td>
+      </tr>
+      
+      <tr data-incident='{"id":"5", "title":"Software Bug", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"An application error is preventing users from submitting forms. The issue is linked to a recent software update that introduced a validation bug."}'>
+          <td><input type="checkbox" class="row-checkbox"></td>
+          <td>5</td>
+          <td onclick="openIncident(event)" 
+          data-title="Denial of Service Vulnerability in Linux Kernel"
+                data-source="hackernews"
+                data-severity="HIGH"
+                data-priority="2"
+                data-date="Jan 27, 2025"
+                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                data-fix-link="https://github.com/patch-link">Software Bug</td>
+          <td>Software</td>
+          <td>Medium</td>
+          <td>High</td>
+          <td>Closed</td>
+          <td>2025-01-25</td>
+      </tr>
+      
+ 
+      <tr data-incident='{"id":"6", "title":"Login Failure", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"User unable to log in due to incorrect authentication"}'>
+        <td><input type="checkbox" class="row-checkbox"></td>
+        <td>6</td>
+        <td onclick="openIncident(event)" 
+        data-title="Denial of Service Vulnerability in Linux Kernel"
+              data-source="hackernews"
+              data-severity="HIGH"
+              data-priority="2"
+              data-date="Jan 27, 2025"
+              data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+              data-fix-link="https://github.com/patch-link">Login Failure</td>
+        <td>Software</td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Closed</td>
+        <td>2025-01-25</td>
+    </tr>
+              <tr data-incident-id="7">
+                <td><input type="checkbox" class="row-checkbox" "></td>
+                <td>2</td>
+                <td>Login Failure</td>
+                <td>Software</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Closed</td>
+                <td>2025-01-25</td>
+              </tr>
+              <tr data-incident-id="8">
+                <td><input type="checkbox" class="row-checkbox" "></td>
+                <td>2</td>
+                <td>Login Failure</td>
+                <td>Software</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Closed</td>
+                <td>2025-01-25</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" "></td>
+                <td>3</td>
+                <td>Login Failure</td>
+                <td>Software</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Closed</td>
+                <td>2025-01-25</td>
+              </tr>
+              </tr>         
+    </table>
+  
+
+   <!-- Incident Panel -->
+   <div class="incident-panel" id="incidentPanel">
+    <div class="incident-header">
+        <h3 id="incidentTitle">Incident Details</h3>
+        <a class="close-btnn" onclick="closeIncident()">X</a>
+    </div>
+
+    <div class="incident-container">
+        <!-- Incident Details -->
+        <div class="incident-content">
+            <h4 id="incidentName">Incident Name</h4>
+            <p><strong>Source:</strong> <span id="incidentSource"></span></p>
+            <p><strong>Severity:</strong> <span id="incidentSeverity"></span></p>
+            <p><strong>Priority:</strong> <span id="incidentPriority"></span></p>
+            <p><strong>Date Reported:</strong> <span id="incidentDate"></span></p>
+            <p id="incidentDescription"></p>
+            <h4>Suggested Fix</h4>
+            <p><a id="incidentFixLink" href="#" target="_blank">View Patch</a></p>
+
+            <!-- Comments Section -->
+            <h4>Comments</h4>
+            <div class="comments">
+                <p><strong>Mayur H.</strong> (Today)</p>
+                <p>This incident has been solved</p>
+
+                <p><strong>Mayur H.</strong> (Today)</p>
+                <p>This incident has been solved</p>
+
+                <p><strong>Mayur H.</strong> (Today)</p>
+                <p>This incident has been solved</p>
+            </div>
+        </div>
+
+        <!-- Action Logs -->
+        <div class="action-logs">
+            <h4 class="j">Action Logs Timeline</h4>
+            <div class="log-entry">11:30:29 IST - Mayur H. marked incident as resolved</div>
+            <div class="log-entry">11:30:27 IST - Status updated</div>
+            <div class="log-entry">11:29:50 IST - Initial report created</div>
+        </div>
+    </div>
+
+    <button class="resolve-btn">Resolve Incident</button>
+</div>
+
+
+  </div>
+  <!-- Popup Menu for Row Hover -->
+<div id="rowPopup" class="popup-menu">
+    <button  class="b1"onclick="viewIncident()"><u>View</button><br>
+    <button class="b2" onclick="goToDashboard()"><u>To Dashboard</u></button><br>
+    <button  class="b3"onclick="editIncident()"><u>Edit</u></button>
+  </div>
+  <ul>
+     <button id="graphButton" onclick="grap()" >Graph</button>
+  </ul>
+  
+</div><!-- Side panel section -->
+</div>
+
+
+
+    </main>
+ 
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="scripts.js"></script>
+
+  
+  <script>
+    function openIncident(event) {
+        const incidentElement = event.target;
+
+        // Extracting data attributes
+        const title = incidentElement.getAttribute("data-title");
+        const source = incidentElement.getAttribute("data-source");
+        const severity = incidentElement.getAttribute("data-severity");
+        const priority = incidentElement.getAttribute("data-priority");
+        const date = incidentElement.getAttribute("data-date");
+        const description = incidentElement.getAttribute("data-description");
+        const fixLink = incidentElement.getAttribute("data-fix-link");
+
+        // Setting the values in the panel
+        document.getElementById("incidentTitle").textContent = "Incident Details";
+        document.getElementById("incidentName").textContent = title;
+        document.getElementById("incidentSource").textContent = source;
+        document.getElementById("incidentSeverity").textContent = severity;
+        document.getElementById("incidentPriority").textContent = priority;
+        document.getElementById("incidentDate").textContent = date;
+        document.getElementById("incidentDescription").textContent = description;
+        document.getElementById("incidentFixLink").href = fixLink;
+
+        // Open the panel
+        document.getElementById("incidentPanel").classList.add("open");
+    }
+
+    function closeIncident() {
+        document.getElementById("incidentPanel").classList.remove("open");
+    }
+   
+      document.getElementById("bell-icon").addEventListener("click", function(event) {
+        event.stopPropagation();
+        let popup = document.getElementById("notification-popup");
+        popup.style.display = popup.style.display === "block" ? "none" : "block";
+      });
+    
+      // Close notification box when clicking outside
+      document.addEventListener("click", function(event) {
+        let popup = document.getElementById("notification-popup");
+        let bell = document.getElementById("bell-icon");
+        if (!popup.contains(event.target) && !bell.contains(event.target)) {
+          popup.style.display = "none";
+        }
+      });
+    
+</script>
+</body>
+</html>

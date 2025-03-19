@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        background-color: black;
+        color: black;
+    }
+    .santa {
+        text-align: center;
+        justify-content: center;
+        margin-left: 30%;
+        margin-top: -3%;
+    }
+    .mmm {
+        color: aliceblue;
+        border: 2px rgb(230, 243, 230);
+    }
+    .m {
+        color: aliceblue;
+     margin-top: -2%;
+        width: 50%;
+        text-align: center;
+       margin-bottom: 3%;;
+        margin-left: 25%;
+    }
+    .o{
+        color: aliceblue;
+      
+        width: 50%;
+        text-align: center;
+        margin-top: -1%;
+        margin-left: 25%;  
+    }
+    .n {
+        color: aliceblue;
+        border: 2px orange solid;
+        padding: 15px;
+        width: 135px;
+        margin-left: 42%;
+        gap: 6%;
+    }
+    .ne {
+        color: aliceblue;
+        border: 2px orange solid;
+        background-color: orange;
+        border-radius: 2px;
+        padding: 15px;
+        width: 135px;
+    }
+    #moreText {
+        display: none;
+    }
+</style>
+<body>
+    <div>
+        <img src="logo.png" class="santa">
+        <div class="mmm">
+            <p class="m">
+                This is your central hub for incident updates. We provide timely notifications and comprehensive details about ongoing incidents, minimizing disruption and keeping you informed every step of the way. Our goal is to provide transparent and proactive communication about any service disruptions.
+         
+          
+            <p class="m" id="moreText">
+                Option 4 (Focus on User Impact):
+                Know what's happening with your services. Quickly access information about incidents and estimated times to resolution. We understand the importance of staying informed and we're here to provide you with the information you need.
+                
+                Option 5 (Detailed and Action-Oriented):
+                Proactively manage service disruptions. This incident website delivers real-time updates, impact assessments, and details about the steps we're taking to restore service quickly. Subscribe to notifications for personalized alerts so you're always up-to-date.
+                
+                Option 6 (Focus on Proactive Communication):
+                We're committed to keeping you in the loop. We communicate proactively about incidents, providing clear and concise updates from the moment an issue is detected until it's fully resolved. Our goal is to minimize any disruption and keep you informed.
+            </p>
+        </p>
+        </div>
+        
+        <button class="n" onclick="showMore()">Read More</button>
+        <button class="ne" onclick="redirectToPage()">Get Started</button>
+
+    </div>
+
+    <script>
+        function showMore() {
+            var moreText = document.getElementById("moreText");
+            if (moreText.style.display === "none") {
+                moreText.style.display = "block";
+            } else {
+                moreText.style.display = "none";
+            }
+        }
+        function redirectToPage() {
+            // Redirect to the new page when the button is clicked
+            window.location.href = "new.html";  // Replace "nextPage.html" with your desired page URL
+        }
+    </script>
+</body>
+</html>
