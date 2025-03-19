@@ -20,6 +20,8 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle text shadow */
   margin-top: 10px; /* Adds space above the heading */
   margin-left: 10px;;
+  gap:100%;
+  display: flex;
   
 }
 
@@ -28,7 +30,7 @@ body {
   color: white;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
  
 }
@@ -45,17 +47,35 @@ gap:10%
   padding: 5px 10px;
   width: 900px; /* Adjust width as needed */
   background-color: white;
+  
+ 
+ 
 }
-.nnn{
-  margin-left: 37%;
-  margin-top: -3%;
-  margin-bottom: 4%;
+.search-containers {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 500px; /* Adjust width as needed */
+  background-color: rgb(255, 255, 255);
+ margin-left: 20%;
+ margin-right: -20%;
+}
+.nnnn{
+  margin-left: 3%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding:10px;
 }
 .d{
   width: 14%;
   height: 2%;
   margin-bottom: 3%;
   
+}
+.section{
+  display: none;
 }
 .df{
   margin-bottom: -2%;
@@ -67,11 +87,16 @@ gap:10%
   flex: 1; /* Takes remaining space */
   padding: 8px;
   font-size: 16px;
+  margin-bottom: 2%;
+  width:150%;
 }
+
 .f{
-  width:10%;
+
+  
+  width:50%;
   display: flex;
-  gap:20%;
+  gap:1%;
   flex-direction: row;
   margin-left: 45%;
   margin-bottom: 3%;
@@ -91,7 +116,10 @@ gap:10%
   display: flex;
   align-items: center;
   color: #b0b0b0;
-  position: relative; /* Needed for absolute positioning of the popup */
+  position: relative;
+   margin-left: 50%;
+  
+   /* Needed for absolute positioning of the popup */
 }
 
 .topbar-icons .icon {
@@ -106,7 +134,7 @@ gap:10%
 .ok {
   position: relative;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 10%;
 }
 
 /* Notification Badge */
@@ -301,6 +329,10 @@ canvas {
   font-size: 24px;
   font-weight: bold;
 }
+.ne{
+  background-color: white;
+  padding: 3%;
+}
 
 /* Chart Layout - Make charts side by side */
 .row {
@@ -323,29 +355,13 @@ canvas {
 
 
 
-/* Summary Section */
-.col-md-4 {
-  
-  padding: 10px;
-  display: flex;
-  gap:30%;
-  width: 100%;
-  margin-bottom: 20px;
-  padding:2%;
-  border-radius: 15px; /* Adjust the value for more or less curve */
-  height: 30%;
-  margin-right: -40%;
-  background-color: #fffdfd; /* Light background for visibility */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 /* Action Buttons */
 .action-buttons {
   display: flex;
   gap: 80px;
   text-align: center;
   justify-content: center;
-  
+  margin-top: 4%;
 
   padding: 5%;
   border-radius: 15px;
@@ -462,6 +478,7 @@ option {
 
 .incident-table {
   margin-top: 20px;
+ 
   
   width:155%;  overflow-x: auto; /* For horizontal scrolling if table overflows */
 }
@@ -625,7 +642,7 @@ button{
 /* Title in the side panel */
 #incidentName {
   font-size: 24px;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -698,6 +715,9 @@ button{
   tr:hover {
       background-color: #f1f1f1;
       cursor: pointer;
+  }
+  .h11{
+    color: #4CAF50;
   }
   #incidentSidebar {
     display: none; /* Hidden by default */
@@ -887,7 +907,7 @@ button{
     /* Make Chatbox Wider */
     .chatbox-container {
         flex: 5; /* Increase width ratio */
-        min-width: 200%; /* Ensures a wider size */
+        min-width: 170%; /* Ensures a wider size */
         max-width: 150%;
         background: white;
         padding: 20px;
@@ -1017,9 +1037,9 @@ h4{
       }
       .cin{
         background-color: white;
-        width:235%;
+        width:210%;
         margin: 3%;
-        margin-left: 7%;
+        margin-left: 2%;
         padding: 20px;
               
       }
@@ -1051,3 +1071,113 @@ h4{
   height:4%;
   width:55%;
 }
+
+
+/* incident report css */.report-container {
+            width: 1250px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .report-section {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+
+
+
+
+        /* profile icon */
+        .profile-container {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          padding: 20px;
+          width:10%;
+         
+      }
+      .io{
+        padding:10px;
+      }
+      .profile-name {
+          font-size: 16px;
+      }
+      .profile-dropdown {
+          position: absolute;
+          top: 40px;
+          right: 0;
+          width: 200px;
+          background: white;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+          border-radius: 8px;
+          display: none;
+          z-index: 1000;
+      }
+      .profile-header {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+      }
+      .profile-header img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin-right: 10px;
+      }
+      .profile-header span {
+          font-weight: bold;
+      }
+      .profile-dropdown ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      .profile-dropdown ul li {
+          padding: 10px;
+          cursor: pointer;
+          border-bottom: 1px solid #ddd;
+      }
+      .profile-dropdown ul li:last-child {
+          border-bottom: none;
+          background: #ff3b30;
+          color: white;
+          text-align: center;
+          border-radius: 0 0 8px 8px;
+      }
+      .profile-dropdown ul li:hover {
+          background: #f4f4f4;
+      }
+      .profile-dropdown ul li:last-child:hover {
+          background: #e60000;
+      }
