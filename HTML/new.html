@@ -13,7 +13,8 @@
   <!-- Top Bar -->
   <header class="topbar">
     <h1 class="ima">Triage</h1>
-    <div class="search-container" >
+
+    <div class="search-containers" >
       <input type="text" class="search-box" placeholder="Search...">
       <i class="fa-solid fa-magnifying-glass"></i> 
       </div>
@@ -24,10 +25,11 @@
     <i class="fa-solid fa-bell"></i>
     <span class="notification-badge" id="notification-badge">13</span>
   </span>
-  <span class="icon"><i class="fa-solid fa-user"></i></span>
-  <span class="user-profile">Account.</span>
+
+
   
   <!-- Notification Popup -->
+
   <div class="notification-popup" id="notification-popup">
     <h4>Notifications</h4>
     <ul>
@@ -38,6 +40,27 @@
     </ul>
   </div>
 </div>
+<!-- Account Icon -->
+<div class="profile-container" onclick="toggleProfileDropdown()">
+ 
+  <span class="profile-name">Mayur H.</span>
+</div>
+
+<!-- Profile Dropdown -->
+<div class="profile-dropdown" id="profile-dropdown">
+  <div class="profile-header">
+    <span><i class="fa-solid fa-circle" style="color: #cececf;"></i></span>
+    <span class="io">Mayur H.</span>
+  </div>
+  <ul>
+      <li>Settings</li>
+      <li>Your Activity</li>
+      <li>Feedback</li>
+      <li onclick="logout()">Logout</li>
+  </ul>
+</div>
+
+
     
   </header>
 
@@ -51,7 +74,7 @@
           <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
           <li><a href="#" onclick="showSection('incident')">Incident</a></li>
           <li><a href="#" onclick="showSection('collab')">Collaboration</a></li>
-          <li><a href="#">Reports</a></li>
+          <li><a href="#" onclick="showSection('report')">Report</a></li>
           <li><a href="#">Settings</a></li>
         </ul>
       </nav>
@@ -76,15 +99,18 @@
             <i class="fa-solid fa-magnifying-glass search-icon"></i> 
            
           </div>
-        <div> <h2 class="nnn">Filter :</h2></div>
+         
           <div class="f">
-            
-            <select id="category" class="p">
+            <div class="nnnn">
+              <h2>Filter </h2>
+            </div>
+            <select id="category" >
+              
               <option value="">Category</option>
               <option value="Hardware">Hardware</option>
               <option value="Software">Software</option>
             </select>
-            <select id="category"class="p">
+            <select id="category">
               <option value="">Priotriy</option>
               <option value="Hardware">Hardware</option>
               <option value="Software">Software</option>
@@ -124,19 +150,97 @@
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card1">
-            <div class="card-body1">
-              <canvas id="barChart"></canvas>
-            </div>
-          </div>
+       <!-- Incident Table -->
+<div  style="max-height: 300px; overflow-y: auto; ;" class="ne">
+  <table id="incidentTable" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th><input type="checkbox"></th> <!-- New column for checkboxes -->
+        <th>Incident ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Severity</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Last Update</th>
+      </tr>
+    </thead>
+ 
+    <tbody>
+      <tbody>
+        <tr  >
 
-          <div class="card1">
-            <div class="card-body">
-              <canvas id="donutChart"></canvas>
-            </div>
-          </div>
-        </div>
+          <td><input type="checkbox" class="row-checkbox"></td>
+          <td>1</td>
+          <td onclick="openIncident(event)" 
+          data-title="Denial of Service Vulnerability in Linux Kernel"
+                data-source="hackernews"
+                data-severity="HIGH"
+                data-priority="2"
+                data-date="Jan 27, 2025"
+                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                data-fix-link="https://github.com/patch-link">System Crash</td>
+          <td>Hardware</td>
+          <td>High</td>
+          <td>Critical</td>
+          <td>Open</td>
+          <td>2025-01-27</td>
+        </tr>
+        
+      <tr data-incident='{"id":"2", "title":"Login Failure", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"User unable to log in due to incorrect authentication"}'>
+          <td><input type="checkbox" class="row-checkbox"></td>
+          <td>2</td>
+          <td onclick="openIncident(event)" 
+          data-title="Denial of Service Vulnerability in Linux Kernel"
+                data-source="hackernews"
+                data-severity="HIGH"
+                data-priority="2"
+                data-date="Jan 27, 2025"
+                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                data-fix-link="https://github.com/patch-link">Login Failure</td>
+          <td>Software</td>
+          <td>Medium</td>
+          <td>High</td>
+          <td>Closed</td>
+          <td>2025-01-25</td>
+      </tr>
+      <tr data-incident='{"id":"3", "title":"Network Outage", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"A major network outage has been reported, affecting connectivity across multiple departments. The cause is suspected to be a faulty router or ISP issues."}'>
+        <td><input type="checkbox" class="row-checkbox"></td>
+        <td>3</td>
+        <td onclick="openIncident(event)" 
+        data-title="Denial of Service Vulnerability in Linux Kernel"
+              data-source="hackernews"
+              data-severity="HIGH"
+              data-priority="2"
+              data-date="Jan 27, 2025"
+              data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+              data-fix-link="https://github.com/patch-link">Network Outage</td>
+        <td>Software</td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Closed</td>
+        <td>2025-01-25</td>
+    </tr>
+    
+    <tr data-incident='{"id":"4", "title":"Data Breach Attempt", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"Unusual login attempts detected from multiple locations. Possible security breach, requiring an urgent investigation to secure user accounts."}'>
+        <td><input type="checkbox" class="row-checkbox"></td>
+        <td>4</td>
+        <td onclick="openIncident(event)" 
+        data-title="Denial of Service Vulnerability in Linux Kernel"
+              data-source="hackernews"
+              data-severity="HIGH"
+              data-priority="2"
+              data-date="Jan 27, 2025"
+              data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+              data-fix-link="https://github.com/patch-link">Data Breach Attempt</td>
+        <td>Software</td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Closed</td>
+        <td>2025-01-25</td>
+    </tr>
+   </table>
+</div>
 
         <!-- Action Buttons -->
         <section class="action-buttons">
@@ -160,6 +264,9 @@
                 <div class="chatbox-message chatbox-received">Mayur H.<br>Hello <span>9:31</span></div>
                 <div class="chatbox-message chatbox-received">Mayur H.<br>Hello <span>9:31</span></div>
                 <div class="chatbox-message chatbox-sent">Mayur H.<br>Hello <span>9:31</span></div>
+                <div class="chatbox-message chatbox-sent">Mayur H.<br>Hello <span>9:31</span></div>
+                <div class="chatbox-message chatbox-sent">Mayur H.<br>Hello <span>9:31</span></div>
+
                 <div class="chatbox-message chatbox-sent">Mayur H.<br>Hello <span>9:31</span></div>
             </section>
             <footer class="chatbox-footer">
@@ -214,7 +321,56 @@
     </div>
   </div>
 
-
+  <div  id ="report" class="section">
+    <div class="report-container">
+      <h2>Incident Report Form</h2>
+  
+      <!-- Incident Details Section -->
+      <div class="report-section">
+          <label for="incidentTitle">Incident Title</label>
+          <input type="text" id="incidentTitle" placeholder="Enter incident title">
+          <br><br>
+          <label for="incidentDate">Date of Incident</label>
+          <input type="date" id="incidentDate">
+          <br><br>
+          <label for="incidentType">Incident Type</label>
+          <select id="incidentType">
+              <option value="other"></option>
+              <option value="theft">Online Financial Fraud</option>
+              <option value="Ransomware">Ransomware</option>
+              <option value="onlineGambling">Online Gambling</option>
+              <option value="otherCrime">Any Other Crime</option>
+          </select>
+          <br><br>
+          <label for="incidentDescription">Description</label>
+          <textarea id="incidentDescription" rows="4" placeholder="Describe the incident"></textarea>
+      </div>
+      <br><br> <br>
+      <!-- Reporter Details Section -->
+      <div class="report-section">
+          <h3>Reporter Information</h3>
+          <br><br>
+          <label for="reporterName">Name</label>
+          <input type="text" id="reporterName" placeholder="Your Name">
+          <br><br>
+          <label for="reporterEmail">Email</label>
+          <input type="email" id="reporterEmail" placeholder="Your Email">
+          <br><br>
+          <label for="reporterPhone">Phone</label>
+          <input type="tel" id="reporterPhone" placeholder="Your Contact Number">
+      </div>
+      <br><br>
+      <!-- Attachments Section -->
+      <div class="report-section">
+          <h3>Attachments</h3>
+          <label for="incidentFile">Upload File (Optional)</label>
+          <input type="file" id="incidentFile">
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit">Submit Report</button>
+  </div>
+  </div>
 
 
 
@@ -295,7 +451,7 @@
             <td><input type="checkbox" class="row-checkbox"></td>
             <td>2</td>
             <td onclick="openIncident(event)" 
-            data-title="Denial of Service Vulnerability in Linux Kernel"
+            data-title="online gambling"
                   data-source="hackernews"
                   data-severity="HIGH"
                   data-priority="2"
@@ -312,13 +468,13 @@
           <td><input type="checkbox" class="row-checkbox"></td>
           <td>3</td>
           <td onclick="openIncident(event)" 
-          data-title="Denial of Service Vulnerability in Linux Kernel"
+          data-title="Online gambling"
                 data-source="hackernews"
                 data-severity="HIGH"
                 data-priority="2"
                 data-date="Jan 27, 2025"
                 data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
-                data-fix-link="https://github.com/patch-link">Network Outage</td>
+                data-fix-link="https://github.com/patch-link">Online gambling</td>
           <td>Software</td>
           <td>Medium</td>
           <td>High</td>
@@ -330,13 +486,13 @@
           <td><input type="checkbox" class="row-checkbox"></td>
           <td>4</td>
           <td onclick="openIncident(event)" 
-          data-title="Denial of Service Vulnerability in Linux Kernel"
+          data-title="Financial Fraud"
                 data-source="hackernews"
                 data-severity="HIGH"
                 data-priority="2"
                 data-date="Jan 27, 2025"
                 data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
-                data-fix-link="https://github.com/patch-link">Data Breach Attempt</td>
+                data-fix-link="https://github.com/patch-link">Financial Fraud</td>
           <td>Software</td>
           <td>Medium</td>
           <td>High</td>
@@ -362,55 +518,6 @@
           <td>2025-01-25</td>
       </tr>
       
- 
-      <tr data-incident='{"id":"6", "title":"Login Failure", "category":"Software", "severity":"Medium", "priority":"High", "status":"Closed", "date":"2025-01-25", "description":"User unable to log in due to incorrect authentication"}'>
-        <td><input type="checkbox" class="row-checkbox"></td>
-        <td>6</td>
-        <td onclick="openIncident(event)" 
-        data-title="Denial of Service Vulnerability in Linux Kernel"
-              data-source="hackernews"
-              data-severity="HIGH"
-              data-priority="2"
-              data-date="Jan 27, 2025"
-              data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
-              data-fix-link="https://github.com/patch-link">Login Failure</td>
-        <td>Software</td>
-        <td>Medium</td>
-        <td>High</td>
-        <td>Closed</td>
-        <td>2025-01-25</td>
-    </tr>
-              <tr data-incident-id="7">
-                <td><input type="checkbox" class="row-checkbox" "></td>
-                <td>2</td>
-                <td>Login Failure</td>
-                <td>Software</td>
-                <td>Medium</td>
-                <td>High</td>
-                <td>Closed</td>
-                <td>2025-01-25</td>
-              </tr>
-              <tr data-incident-id="8">
-                <td><input type="checkbox" class="row-checkbox" "></td>
-                <td>2</td>
-                <td>Login Failure</td>
-                <td>Software</td>
-                <td>Medium</td>
-                <td>High</td>
-                <td>Closed</td>
-                <td>2025-01-25</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="row-checkbox" "></td>
-                <td>3</td>
-                <td>Login Failure</td>
-                <td>Software</td>
-                <td>Medium</td>
-                <td>High</td>
-                <td>Closed</td>
-                <td>2025-01-25</td>
-              </tr>
-              </tr>         
     </table>
   
 
@@ -431,7 +538,7 @@
             <p><strong>Date Reported:</strong> <span id="incidentDate"></span></p>
             <p id="incidentDescription"></p>
             <h4>Suggested Fix</h4>
-            <p><a id="incidentFixLink" href="#" target="_blank">View Patch</a></p>
+            <p><a  class="h11"id="incidentFixLink" href="#" target="_blank">View Patch</a></p>
 
             <!-- Comments Section -->
             <h4>Comments</h4>
@@ -529,6 +636,24 @@
         }
       });
     
+      function toggleProfileDropdown() {
+        var dropdown = document.getElementById("profile-dropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        var dropdown = document.getElementById("profile-dropdown");
+        var profileContainer = document.querySelector(".profile-container");
+        if (!dropdown.contains(event.target) && !profileContainer.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+
+    function logout() {
+        alert("Logging out...");
+        // Redirect or perform logout logic here
+    }
 </script>
 </body>
 </html>
