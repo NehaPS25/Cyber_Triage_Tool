@@ -20,7 +20,7 @@ function showSection(sectionId) {
 document.addEventListener("DOMContentLoaded", function() {
   // Hide sections on page load
   document.getElementById("incident").style.display = 'none';
-  document.getElementById("dashobard1").style.display = 'none';
+  document.getElementById("dashboard").style.display = 'none';
 });
 
   
