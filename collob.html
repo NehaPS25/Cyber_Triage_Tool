@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/styles1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+      
+
+
+</style></head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <h1 class="ima">Triage</h1>
+    <div class="search-container" >
+      <input type="text" class="search-box" placeholder="Search...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div class="topbar-icons">
+      <span class="icon"><i class="fa-solid fa-user"></i></span>
+      <span class="user-profile">Account.</span>
+    </div>
+  </header>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <!-- Link to Dashboard and Incident -->
+          <li><a href="#" >Dashboard</a></li>
+          <li><a href="#" >Incident</a></li>
+          <li><a href="#">Collaboration</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Dashboard Section -->
+      <div id="dashboard1" class="section">
+        <!-- Metrics Cards -->
+        <section class="metrics">
+          <div class="card red">Total Incidents<br><span>3450</span></div>
+          <div class="card purple">Open Cases<br><span>1200</span></div>
+          <div class="card white">Resolved<br><span>2250</span></div>
+        </section>
+
+        <!-- Chart Section -->
+        <div class="row">
+          <div class="col-md-6">
+            <canvas id="lineChart"></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="tenDayChart"></canvas>
+          </div>
+        </div>
+        
+        <div class="new">
+            <!-- Incident Table -->
+            <div class="incident-table" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc;">
+                <table id="incidentTable" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Incident ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Severity</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Last Update</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td onclick="openIncident(event)" 
+                                data-title="Denial of Service Vulnerability in Linux Kernel"
+                                data-source="hackernews"
+                                data-severity="HIGH"
+                                data-priority="2"
+                                data-date="Jan 27, 2025"
+                                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                                data-fix-link="https://github.com/patch-link">System Crash</td>
+                            <td>Hardware</td>
+                            <td>High</td>
+                            <td>Critical</td>
+                            <td>Open</td>
+                            <td>2025-01-27</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td onclick="openIncident(event)" 
+                                data-title="Denial of Service Vulnerability in Linux Kernel"
+                                data-source="hackernews"
+                                data-severity="HIGH"
+                                data-priority="2"
+                                data-date="Jan 27, 2025"
+                                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                                data-fix-link="https://github.com/patch-link">Login Failure</td>
+                            <td>Software</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>Closed</td>
+                            <td>2025-01-25</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td onclick="openIncident(event)" 
+                                data-title="Denial of Service Vulnerability in Linux Kernel"
+                                data-source="hackernews"
+                                data-severity="HIGH"
+                                data-priority="2"
+                                data-date="Jan 27, 2025"
+                                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                                data-fix-link="https://github.com/patch-link">Network Outage</td>
+                            <td>Software</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>Closed</td>
+                            <td>2025-01-25</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td onclick="openIncident(event)" 
+                                data-title="Denial of Service Vulnerability in Linux Kernel"
+                                data-source="hackernews"
+                                data-severity="HIGH"
+                                data-priority="2"
+                                data-date="Jan 27, 2025"
+                                data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                                data-fix-link="https://github.com/patch-link">API Failure</td>
+                            <td>API</td>
+                            <td>Low</td>
+                            <td>Low</td>
+                            <td>Closed</td>
+                            <td>2025-01-24</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                        <td onclick="openIncident(event)" 
+                        data-title="Denial of Service Vulnerability in Linux Kernel"
+                        data-source="hackernews"
+                        data-severity="HIGH"
+                        data-priority="2"
+                        data-date="Jan 27, 2025"
+                        data-description="A vulnerability has been reported in the Linux kernel that could allow a local attacker to cause denial of service conditions on a targeted system."
+                        data-fix-link="https://github.com/patch-link">API Failure</td>
+                    <td>API</td>
+                    <td>Low</td>
+                    <td>Low</td>
+                    <td>Closed</td>
+                    <td>2025-01-24</td>
+                </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card1">
+            <div class="card-body1">
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card1">
+            <div class="card-body">
+              <canvas id="donutChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons">
+          <button class="btn green">Report New Incident</button>
+          <button class="btn orange">View All Incidents</button>
+          <button class="btn blue">Generate Report</button>
+        </section>
+      </div>
+
+      <!-- Incident Section -->
+      <div id="incident" class="section " >
+        <div class="section1">
+          <h2>Incidents</h2>
+        </div>
+        <section class="section2">
+          <div class="sear">
+            <input type="text" class="search-box" placeholder="Search...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="filters">
+            <select id="category">
+              <option value="">Category</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+            </select>
+            <select id="severity">
+              <option value="">Severity</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+            </select>
+            <input type="date" id="date">
+            <select id="status">
+              <option value="">Status</option>
+              <option value="Open">Open</option>
+              <option value="Closed">Closed</option>
+            </select>
+            <select id="priority">
+              <option value="">Priority</option>
+              <option value="Critical">Critical</option>
+              <option value="High">High</option>
+            </select>
+        
+     
+        <section class="hi" id="sidePanel">
+            <span class="close-btn" id="closeBtn"></span>
+          
+            </div>
+        </section>
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/scripts.js"></script>
+
+  
+  <script>
+    function openIncident(event) {
+        const incidentElement = event.target;
+
+        // Extracting data attributes
+        const title = incidentElement.getAttribute("data-title");
+        const source = incidentElement.getAttribute("data-source");
+        const severity = incidentElement.getAttribute("data-severity");
+        const priority = incidentElement.getAttribute("data-priority");
+        const date = incidentElement.getAttribute("data-date");
+        const description = incidentElement.getAttribute("data-description");
+        const fixLink = incidentElement.getAttribute("data-fix-link");
+
+        // Setting the values in the panel
+        document.getElementById("incidentTitle").textContent = "Incident Details";
+        document.getElementById("incidentName").textContent = title;
+        document.getElementById("incidentSource").textContent = source;
+        document.getElementById("incidentSeverity").textContent = severity;
+        document.getElementById("incidentPriority").textContent = priority;
+        document.getElementById("incidentDate").textContent = date;
+        document.getElementById("incidentDescription").textContent = description;
+        document.getElementById("incidentFixLink").href = fixLink;
+
+        // Open the panel
+        document.getElementById("incidentPanel").classList.add("open");
+    }
+
+    function closeIncident() {
+        document.getElementById("incidentPanel").classList.remove("open");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #79aaaa;    }
+    .card {
+      margin-bottom: 20px;
+      background-color: #f5f3f3; /* White cards */
+      border-radius: 10px;
+    }
+    .chart-container {
+      width: 20%;
+      height: 300px;
+    }
+    .o {
+      border: 4px solid #07000c; /* Blue border */
+      background-color: #e9edf3; /* Dark blue background */
+      height: 9%;
+      padding: 15px;
+      color: white;
+      -webkit-text-fill-color: white;
+      -webkit-text-stroke: 2px #0056b3;
+      letter-spacing: 3px;
+      color:white;
+
+    }
+    .grey-box {
+      background-color: #dfebed; /* White background for grey box */
+      padding: 30px;
+      color:white;
+
+      border-radius: 10px;
+      margin-top: 10px;
+      width: 100%; /* Adjust to full container width */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+    }
+    .card-title {
+      font-weight: bold;
+      color: #333; /* Dark gray text */
+    }
+    .card-text {
+      color: #555; /* Lighter gray text for body */
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4 grey-box">
+    <div class="row">
+      <!-- Incident Table -->
+      <div class="col-md-8">
+        <h4 class="o" id="h1">INCIDENTS</h4>
+        <table class="table table-bordered">
+          <thead class="table-primary">
+            <tr>
+              <th>Incident No</th>
+              <th>Description</th>
+              <th>Severity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Server downtime</td>
+              <td><span class="badge bg-danger">High</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Privacy breach</td>
+              <td><span class="badge bg-danger">High</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-danger">High</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-danger">High</span></td>
+              </tr>
+            <tr>
+              <td>3</td>
+              <td>Privacy breach</td>
+              <td><span class="badge bg-warning">Medium</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-warning">Medium</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-warning">Medium</span></td>
+              </tr>
+            <tr>
+              <td>4</td>
+              <td>Privacy breach</td>
+              <td><span class="badge bg-warning">Medium</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Privacy breach</td>
+              <td><span class="badge bg-success">Low</span></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-success">Low</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-success">Low</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-success">Low</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Privacy breach</td>
+                <td><span class="badge bg-success">Low</span></td>
+              </tr>
+               <tr>
+              <td>5</td>
+              <td>Privacy breach</td>
+              <td><span class="badge bg-success">Low</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Charts and Summary -->
+      <div class="col-md-4">
+        <h4>Summary</h4>
+        <div class="card">
+          <div class="card-body">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <canvas id="donutChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Metrics -->
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Total Cases</h5>
+            <p class="card-text">500</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">New Cases</h5>
+            <p class="card-text">364</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">High Severity</h5>
+            <p class="card-text">172</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">In Progress</h5>
+            <p class="card-text">318</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <canvas id="lineChart"></canvas>
+      </div>
+      <!-- New 10 Days Chart -->
+      <div class="col-md-6">
+        <canvas id="tenDayChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Bar Chart
+    const barChart = new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Machine', 'Privacy', 'Server', 'DDoS', 'Compromise'],
+        datasets: [
+          {
+            label: 'Incidents',
+            data: [20, 15, 30, 10, 5],
+            backgroundColor: 'rgba(75, 192, 192, 0.5)'
+          }
+        ]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Donut Chart
+    const donutChart = new Chart(document.getElementById('donutChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['In Progress', 'New', 'Closed'],
+        datasets: [
+          {
+            label: 'Status',
+            data: [50, 30, 20],
+            backgroundColor: [
+              'rgba(75, 192, 192, 0.5)',
+              'rgba(54, 162, 235, 0.5)',
+              'rgba(255, 99, 132, 0.5)'
+            ]
+          }
+        ]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Line Chart
+    const lineChart = new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+        datasets: [
+          {
+            label: 'Resolved Cases',
+            data: [5, 10, 15, 20, 15, 25, 30],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            fill: false
+          },
+          {
+            label: 'Lost Cases',
+            data: [3, 7, 10, 12, 8, 15, 20],
+            borderColor: 'rgba(255, 99, 132, 1)',
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // New 10 Days Chart
+    const tenDayChart = new Chart(document.getElementById('tenDayChart'), {
+      type: 'line',
+      data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7', 'Day 8', 'Day 9', 'Day 10'],
+        datasets: [
+          {
+            label: 'New Cases',
+            data: [5, 10, 7, 15, 12, 8, 10, 14, 16, 20],
+            borderColor: 'rgba(54, 162, 235, 1)',
+            fill: false
+          },
+          {
+            label: 'Resolved Cases',
+            data: [3, 6, 9, 10, 8, 6, 5, 7, 12, 14],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
+</body>
+</html>
